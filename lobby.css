@@ -1,4 +1,3 @@
-/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,24 +5,25 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif; /* Fallback to sans-serif */
-    background-color: #1a1a2e; /* Dark background */
-    color: #e0e0e0; /* Light text color */
-    overflow: hidden; /* Hide scrollbars, assuming a fixed layout */
+    font-family: 'Roboto', sans-serif;
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    touch-action: manipulation; /* Improves touch responsiveness on mobile */
+    touch-action: manipulation;
 }
 
-/* Landscape Mobile View Optimization */
 @media (orientation: landscape) and (max-width: 1024px) {
     body {
         height: 100vh;
         width: 100vw;
     }
-    .lobby-container, .screen-view {
+
+    .lobby-container,
+    .screen-view {
         width: 100vw;
         height: 100vh;
         max-width: 1024px;
@@ -32,19 +32,18 @@ body {
     }
 }
 
-/* SPLASH SCREEN */
 .splash-screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(images/fpbg1.jpg); /* Very dark background */
+    background-image: url(images/fpbg1.jpg);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    z-index: 100; /* On top of everything */
+    z-index: 100;
 }
 
 .splash-content {
@@ -118,7 +117,8 @@ body {
     animation: fadeIn 2s ease-out 1s forwards;
 }
 
-.splash-start-btn, .splash-connect-wallet-btn {
+.splash-start-btn,
+.splash-connect-wallet-btn {
     font-family: 'Orbitron', sans-serif;
     font-size: 1.5em;
     padding: 15px 30px;
@@ -133,27 +133,44 @@ body {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.splash-start-btn:hover, .splash-connect-wallet-btn:hover {
+.splash-start-btn:hover,
+.splash-connect-wallet-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 0 30px rgba(0, 240, 255, 1);
 }
 
 @keyframes loadBar {
-    0% { width: 0%; }
-    100% { width: 100%; }
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
 }
 
 @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes pulsate {
-    0% { transform: scale(1); text-shadow: 0 0 15px rgba(0, 240, 255, 0.6); }
-    100% { transform: scale(1.02); text-shadow: 0 0 25px rgba(0, 240, 255, 1); }
+    0% {
+        transform: scale(1);
+        text-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
+    }
+
+    100% {
+        transform: scale(1.02);
+        text-shadow: 0 0 25px rgba(0, 240, 255, 1);
+    }
 }
 
-/* MAIN LOBBY CONTAINER */
 .lobby-container {
     display: flex;
     flex-direction: column;
@@ -167,7 +184,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    display: none; /* Hidden until splash screen finishes */
+    display: none;
 }
 
 .lobby-container::before {
@@ -181,7 +198,6 @@ body {
     z-index: 1;
 }
 
-/* TOP BAR (General for all screens, but can be customized) */
 .top-bar {
     display: flex;
     justify-content: space-between;
@@ -216,7 +232,7 @@ body {
     border-radius: 50%;
     margin-right: 10px;
     border: 2px solid #00BFFF;
-    object-fit: cover; /* Ensure image covers the area */
+    object-fit: cover;
 }
 
 .profile-info {
@@ -283,7 +299,6 @@ body {
     color: #00F0FF;
 }
 
-/* MAIN CONTENT AREA (for Lobby) */
 .main-content {
     display: flex;
     flex-grow: 1;
@@ -293,7 +308,6 @@ body {
     z-index: 2;
 }
 
-/* LEFT NAVIGATION MENU */
 .left-menu {
     display: flex;
     flex-direction: column;
@@ -351,7 +365,6 @@ body {
     color: #FFD700;
 }
 
-/* CENTER GAME DISPLAY AREA (for Pre-match Lobby) */
 #pre-match-lobby {
     flex-grow: 1;
     display: flex;
@@ -380,8 +393,13 @@ body {
 }
 
 @keyframes floatEffect {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-10px); }
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
 }
 
 .character-name-overlay {
@@ -417,7 +435,6 @@ body {
     margin-top: 5px;
 }
 
-/* RIGHT PANEL */
 .right-panel {
     display: flex;
     flex-direction: column;
@@ -470,14 +487,39 @@ body {
     box-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
 }
 
-.right-panel-item.wallet-connect-btn { border-color: #fdfdfb00; color: #FFD700; box-shadow: 0 0 10px rgba(255, 215, 0, 0.6); }
-.right-panel-item.battle-pass { border-color: #f9fafa00; color: #00BFFF; }
-.right-panel-item.shop { border-color: #fcfcfb00; color: #FFD700; }
-.right-panel-item.lottery { border-color: #fffeff00; color: #DA70D6; }
-.right-panel-item.events { border-color: #fefefe00; color: #32CD32; }
+.right-panel-item.wallet-connect-btn {
+    border-color: #fdfdfb00;
+    color: #FFD700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+.right-panel-item.mint-xp-btn {
+    border-color: #fdfdfb00;
+    color: #00FF00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+}
+
+.right-panel-item.battle-pass {
+    border-color: #f9fafa00;
+    color: #00BFFF;
+}
+
+.right-panel-item.shop {
+    border-color: #fcfcfb00;
+    color: #FFD700;
+}
+
+.right-panel-item.lottery {
+    border-color: #fffeff00;
+    color: #DA70D6;
+}
+
+.right-panel-item.events {
+    border-color: #fefefe00;
+    color: #32CD32;
+}
 
 
-/* BOTTOM BAR */
 .bottom-bar {
     display: flex;
     justify-content: space-between;
@@ -596,7 +638,6 @@ body {
     box-shadow: 0 0 30px rgba(0, 240, 255, 1), 0 0 15px rgba(255, 255, 255, 0.8) inset;
 }
 
-/* Base style for all sub-screens */
 .screen-view {
     position: absolute;
     top: 0;
@@ -607,7 +648,7 @@ body {
     flex-direction: column;
     z-index: 50;
     background: url('images/fpbg1.jpg') no-repeat center center/cover;
-    display: none; /* Initially hidden */
+    display: none;
 }
 
 .screen-view::before {
@@ -621,7 +662,7 @@ body {
     z-index: 1;
 }
 
-.heroes-top-bar { /* Used for most sub-screens now */
+.heroes-top-bar {
     background: linear-gradient(to bottom, rgba(30, 30, 46, 0.9), rgba(30, 30, 46, 0.2));
     border-bottom: 1px solid rgba(0, 240, 255, 0.3);
 }
@@ -651,7 +692,6 @@ body {
     color: #FFD700;
 }
 
-/* HERO/VARIANT SELECTION SCREEN */
 .heroes-content {
     flex-grow: 1;
     display: flex;
@@ -689,7 +729,8 @@ body {
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.filter-btn:hover, .filter-btn.active {
+.filter-btn:hover,
+.filter-btn.active {
     background-color: rgba(0, 240, 255, 0.2);
     border-color: #FFD700;
     color: #FFD700;
@@ -852,7 +893,6 @@ body {
     box-shadow: none;
 }
 
-/* PLAYER PROFILE SCREEN */
 .player-profile-screen .profile-content {
     flex-grow: 1;
     padding: 20px;
@@ -952,7 +992,8 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.profile-tab-btn:hover, .profile-tab-btn.active {
+.profile-tab-btn:hover,
+.profile-tab-btn.active {
     background-color: rgba(0, 240, 255, 0.2);
     border-color: #FFD700;
     color: #FFD700;
@@ -965,13 +1006,15 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.variants-owned-grid, .badges-owned-grid {
+.variants-owned-grid,
+.badges-owned-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     gap: 10px;
 }
 
-.mini-hero-card, .mini-badge-card {
+.mini-hero-card,
+.mini-badge-card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -982,21 +1025,22 @@ body {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
-.mini-hero-card img, .mini-badge-card img {
+.mini-hero-card img,
+.mini-badge-card img {
     width: 80px;
     height: 80px;
     object-fit: contain;
     margin-bottom: 5px;
 }
 
-.mini-hero-card span, .mini-badge-card span {
+.mini-hero-card span,
+.mini-badge-card span {
     font-size: 0.8em;
     font-family: 'Orbitron', sans-serif;
     color: #e0e0e0;
     text-align: center;
 }
 
-/* RANKINGS PAGE */
 .rankings-content {
     flex-grow: 1;
     padding: 20px;
@@ -1026,7 +1070,8 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.ranking-tab-btn:hover, .ranking-tab-btn.active {
+.ranking-tab-btn:hover,
+.ranking-tab-btn.active {
     background-color: rgba(0, 240, 255, 0.2);
     border-color: #FFD700;
     color: #FFD700;
@@ -1047,7 +1092,8 @@ body {
     margin-bottom: 15px;
 }
 
-.rankings-table th, .rankings-table td {
+.rankings-table th,
+.rankings-table td {
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 10px;
     text-align: left;
@@ -1086,7 +1132,7 @@ body {
     cursor: pointer;
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    align-self: center; /* Center the button */
+    align-self: center;
 }
 
 .how-to-qualify-btn:hover {
@@ -1094,7 +1140,6 @@ body {
     box-shadow: 0 0 20px rgba(255, 215, 0, 1);
 }
 
-/* TROPHY ROOM SCREEN */
 .trophy-room-content {
     flex-grow: 1;
     padding: 20px;
@@ -1105,7 +1150,8 @@ body {
     overflow-y: auto;
 }
 
-.earned-badges-section, .achievements-section {
+.earned-badges-section,
+.achievements-section {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 8px;
@@ -1113,7 +1159,8 @@ body {
     margin-bottom: 20px;
 }
 
-.earned-badges-section h3, .achievements-section h3 {
+.earned-badges-section h3,
+.achievements-section h3 {
     font-family: 'Orbitron', sans-serif;
     color: #FFD700;
     margin-bottom: 15px;
@@ -1189,7 +1236,6 @@ body {
     box-shadow: 0 0 20px rgba(0, 240, 255, 1);
 }
 
-/* ATTACHMENT CENTER SCREEN */
 .attachment-content {
     flex-grow: 1;
     padding: 20px;
@@ -1219,7 +1265,8 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.category-btn:hover, .category-btn.active {
+.category-btn:hover,
+.category-btn.active {
     background-color: rgba(0, 240, 255, 0.2);
     border-color: #FFD700;
     color: #FFD700;
@@ -1227,7 +1274,7 @@ body {
 
 .attachment-filters {
     display: flex;
-    justify-content: flex-end; /* Align filters to the right */
+    justify-content: flex-end;
     gap: 10px;
     margin-bottom: 20px;
 }
@@ -1304,8 +1351,8 @@ body {
 
 .attachment-image {
     width: 100%;
-    height: 120px; /* Fixed height for consistency */
-    object-fit: contain; /* Contain to show full item */
+    height: 120px;
+    object-fit: contain;
     border-bottom: 1px solid rgba(0, 240, 255, 0.2);
     margin-bottom: 8px;
 }
@@ -1328,18 +1375,33 @@ body {
     margin-bottom: 8px;
 }
 
-.attachment-rarity.common { background-color: #555; color: #eee; }
-.attachment-rarity.rare { background-color: #00BFFF; color: #1a1a2e; }
-.attachment-rarity.epic { background-color: #DA70D6; color: #1a1a2e; }
-.attachment-rarity.legendary { background-color: #FFD700; color: #1a1a2e; }
+.attachment-rarity.common {
+    background-color: #555;
+    color: #eee;
+}
 
-.attachment-item .preview-btn, .attachment-item .equip-btn {
-    width: calc(100% - 20px); /* Full width minus padding */
+.attachment-rarity.rare {
+    background-color: #00BFFF;
+    color: #1a1a2e;
+}
+
+.attachment-rarity.epic {
+    background-color: #DA70D6;
+    color: #1a1a2e;
+}
+
+.attachment-rarity.legendary {
+    background-color: #FFD700;
+    color: #1a1a2e;
+}
+
+.attachment-item .preview-btn,
+.attachment-item .equip-btn {
+    width: calc(100% - 20px);
     margin: 5px auto 0;
 }
 
 
-/* WALLET CONNECTION MODAL */
 .wallet-modal-overlay {
     position: fixed;
     top: 0;
@@ -1350,8 +1412,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* On top of everything */
-    display: none; /* Initially hidden */
+    z-index: 1000;
+    display: none;
 }
 
 .wallet-modal-content {
@@ -1459,7 +1521,8 @@ body {
     transition: color 0.2s ease;
 }
 
-.wallet-tab-btn:hover, .wallet-tab-btn.active {
+.wallet-tab-btn:hover,
+.wallet-tab-btn.active {
     color: #FFD700;
     border-bottom: 2px solid #FFD700;
 }
@@ -1479,7 +1542,8 @@ body {
     border: 1px solid rgba(0, 240, 255, 0.3);
 }
 
-.locked-feature, .mockup-text {
+.locked-feature,
+.mockup-text {
     color: #FF4500;
     font-style: italic;
     margin: 20px 0;
